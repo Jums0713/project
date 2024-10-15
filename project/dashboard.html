@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Dashboard - Inventory Management</title>
+            <link rel="stylesheet" type="text/css" href="css/login.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /></script>
+    </head>
+    <body>
+        <div id="dashboardMainContainer">
+            <div class="dashboard_sidebar" id="dashboard_sidebar">
+                <h3 class="dashboard_logo" id="dashboard_logo">Sabz Auto</h3>
+                <div class="dashboard_sidebar_user">
+                            <img src="img/logo.png" alt="User image." id="userImage"/>
+                            <span>Admin</span>
+                </div>
+                <div class="dashboard_sidebar_menus">
+                    <ul class="dashboard_menu_lists">
+                    <li class="menuActive">
+                        <a href="" ><i class="fa-solid fa-bars menuIcons"></i> <span class="menuText">Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-solid fa-bars menuIcons"></i> <span class="menuText">Dashboard</span></a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dashboard_content_container">
+                <div class="dashboard_topNav">
+                    <a href="" id="toggleBtn"><i class="fa-solid fa-bars"></i></a>
+                    <a href="" id="logoutBtn"><i class="fa-solid fa-power-off"></i>Log-out</a>
+                </div>
+                <div class="dashboard_content">
+                    <div class="dashboard_content_main">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var sideBarIsOpen = true;
+
+            toggleBtn.addEventListener ('click', (event) =>{
+                event.preventDefault();
+                
+                if (sideBarIsOpen){
+                dashboard_sidebar.style.width = '10%';
+                dashboard_sidebar.style.transition = '0.3s all';
+                dashboard_content_container.style.width = '90%';
+                dashboard_logo.style.fontSize = '60px';
+                userImage.style.width = '60px';
+
+                menuIcons = document.getElementsByClassName('menuText');
+                for(var i=0; i < menuIcons.length;i++){
+                    menuIcons[i].style.display = 'none';
+                }
+
+                document.getElementsByClassName('dashboard_menu_lists')[0].style.textAlign = 'center';
+                sideBarIsOpen = false;
+                } else {
+                dashboard_sidebar.style.width = '20%';
+                dashboard_content_container.style.width = '80%';
+                dashboard_logo.style.fontSize = '80px';
+                userImage.style.width = '80px';
+
+                menuIcons = document.getElementsByClassName('menuText');
+                for(var i=0; i < menuIcons.length;i++){
+                    menuIcons[i].style.display = 'inline-block';
+                }
+
+                document.getElementsByClassName('dashboard_menu_lists')[0].style.textAlign = 'left';
+                sideBarIsOpen = true;
+                }
+            });
+        </script>
+    </body>
+</html>
